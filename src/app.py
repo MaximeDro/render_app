@@ -6,7 +6,7 @@ server = app.server
 # Layout de base
 app.layout = html.Div([
 ############## Titres et textes :
-    html.H1("Titre Principal"),
+    html.H1("Titre Principal updated"),
     html.P("Ceci est un paragraphe décrivant le contenu de la page."),
     html.A("Lien vers la Wild Code School", href="https://www.wildcodeschool.com/"),
 ############## Listes et images :
@@ -48,4 +48,4 @@ app.layout = html.Div([
 ])
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True) # , port = 8071 # pour ne pas être sur dashtools gui si déjà executé
