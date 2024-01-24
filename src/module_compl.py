@@ -26,3 +26,25 @@ df_meteo['temperature'] = [str(temp).split('>')[1].split('<')[0] for temp in tem
 df_meteo['temp_unit'] = '°C'
 df_meteo['pluie'] = [str(precip).split('fw-bold">')[1].split('</span><span')[0] for precip in precipitation if "Précipitations" in str(precip)]
 df_meteo['pluie_unit'] = 'mm'
+
+
+from dash import html, dash_table
+############################## FUNCTION QUI GENERE UNE TABLE A PARTIR D'UN DATAFRAME
+def generate_table(df, max_rows=10):
+    return html.Div([
+            html.H5("DataTable with Bootstrap theme"),
+            html.Div(
+                dash_table.DataTable(
+                    columns=[{"name": i, "id": i} for i in df.columns],
+                    data=df.iloc[:max_rows,:].to_dict("records"),
+                    # row_selectable="single",
+                    # row_deletable=True,
+                    # editable=True,
+                    # filter_action="native",
+                    sort_action="native",
+                    # style_table={"overflowX": "auto"},
+                ),
+            ),
+        ],
+        className="dbc dbc-row-selectable",
+    )
