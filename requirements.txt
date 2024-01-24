@@ -2,3 +2,5 @@ dash==2.14.2
 gunicorn
 pandas
 dash-tools
+bs4
+requests
